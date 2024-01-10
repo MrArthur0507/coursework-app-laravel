@@ -39,6 +39,27 @@ class AuthorController extends Controller
 
         return redirect()->route('authors.index')->with('success', 'Author added successfully!');
     }
+    public function edit(Author $author)
+    {
+        return view('authors.update', compact('author'));
+    }
+
+    public function update(Request $request, Author $author)
+    {
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'email' => 'required|email|unique:authors,email,' . $author->id . ',id',
+            'bio' => 'nullable|string',
+        ]);
+
+        $author->update([
+            'name' => $request->input('name'),
+            'email' => $request->input('email'),
+            'bio' => $request->input('bio'),
+        ]);
+
+        return redirect()->route('authors.index')->with('success', 'Author updated successfully!');
+    }
 
     public function destroy(Author $author)
     {

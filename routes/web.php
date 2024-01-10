@@ -40,6 +40,8 @@ Route::middleware('auth')->group(function () {
     Route::get('/authors/create', [AuthorController::class, 'create'])->name('authors.create');
     Route::post('/authors', [AuthorController::class, 'store'])->name('authors.store');
     Route::get('/authors/{author}', [AuthorController::class, 'show'])->name('authors.show');
+    Route::get('/authors/edit/{author}', [AuthorController::class, 'edit'])->name('authors.edit');
+    Route::put('/authors/update/{author}', [AuthorController::class, 'update'])->name('authors.update');
     Route::delete('/authors/{author}', [AuthorController::class, 'destroy'])->name('authors.destroy');
 
 // Managers Routes
