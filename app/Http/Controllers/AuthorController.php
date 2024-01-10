@@ -25,7 +25,11 @@ class AuthorController extends Controller
 
     public function store(Request $request)
     {
-
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'email' => 'required|email|unique:authors|max:255',
+            'bio' => 'nullable|string',
+        ]);
 
         $author = Author::create([
             'name' => $request->input('name'),
@@ -33,7 +37,7 @@ class AuthorController extends Controller
             'bio' => $request->input('bio'),
         ]);
 
-        return view('authors.index');
+        return redirect()->route('authors.index')->with('success', 'Author added successfully!');
     }
 
     public function destroy(Author $author)
