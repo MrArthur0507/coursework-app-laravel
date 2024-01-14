@@ -4,14 +4,15 @@
 
         <form method="POST" action="{{ route('authors.store') }}">
             @csrf
+
             <div class="form-group">
                 <label for="name">Name</label>
-                <input type="text" class="form-control" id="name" name="name" placeholder="Author Name">
+                <input type="text" class="form-control" id="name" name="name" placeholder="Author Name" required>
             </div>
 
             <div class="form-group">
                 <label for="email">Email address</label>
-                <input type="email" class="form-control" id="email" name="email" placeholder="name@example.com">
+                <input type="email" class="form-control" id="email" name="email" placeholder="name@example.com" required>
             </div>
 
             <div class="form-group">

@@ -29,11 +29,13 @@ Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
-    Route::get('/courses', [CourseWorkController::class, 'index'])->name('courses.index');
-    Route::get('/courses/create', [CourseWorkController::class, 'create'])->name('courses.create');
-    Route::post('/courses', [CourseWorkController::class, 'store'])->name('courses.store');
-    Route::get('/courses/{course}', [CourseWorkController::class, 'show'])->name('courses.show');
-    Route::delete('/courses/{course}', [CourseWorkController::class, 'destroy'])->name('courses.destroy');
+    Route::get('/courseworks', [CourseWorkController::class, 'index'])->name('courseworks.index');
+    Route::get('/courseworks/create', [CourseWorkController::class, 'create'])->name('courseworks.create');
+    Route::post('/courseworks', [CourseWorkController::class, 'store'])->name('courseworks.store');
+    Route::get('/courseworks/{coursework}', [CourseWorkController::class, 'show'])->name('courseworks.show');
+    Route::get('/courseworks/edit/{coursework}', [CourseWorkController::class, 'edit'])->name('courseworks.edit');
+    Route::put('/courseworks/update/{coursework}', [CourseWorkController::class, 'update'])->name('courseworks.update');
+    Route::delete('/courseworks/{coursework}', [CourseWorkController::class, 'destroy'])->name('courseworks.destroy');
 
 // Authors Routes
     Route::get('/authors', [AuthorController::class, 'index'])->name('authors.index');
@@ -52,6 +54,8 @@ Route::middleware('auth')->group(function () {
     Route::put('/managers/update/{manager}', [ManagerController::class, 'update'])->name('managers.update');
     Route::get('/managers/{manager}', [ManagerController::class, 'show'])->name('managers.show');
     Route::delete('/managers/{manager}', [ManagerController::class, 'destroy'])->name('managers.destroy');
+
+
 });
 
 require __DIR__.'/auth.php';

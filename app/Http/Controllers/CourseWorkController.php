@@ -12,19 +12,22 @@ class CourseWorkController extends Controller
     public function index()
     {
         $courseworks = CourseWork::all();
-        return view('courseworks.index', compact('courseworks'));
+        $courseworks->load('author', 'manager');
+
+        return view('courseWorks.index', compact('courseworks'));
     }
 
     public function show(CourseWork $coursework)
     {
-        return view('courseworks.show', compact('coursework'));
+        $coursework->load('author', 'manager');
+        return view('courseWorks.show', compact('coursework'));
     }
 
     public function create()
     {
         $authors = Author::all();
         $managers = Manager::all();
-        return view('courseworks.create', compact('authors', 'managers'));
+        return view('courseWorks.create', compact('authors', 'managers'));
     }
 
     public function store(Request $request)
@@ -43,14 +46,14 @@ class CourseWorkController extends Controller
             'manager_id' => $request->input('manager_id'),
         ]);
 
-        return redirect()->route('courseworks.index');
+        return redirect()->route('courseWorks.index');
     }
 
     public function edit(CourseWork $coursework)
     {
         $authors = Author::all();
         $managers = Manager::all();
-        return view('courseworks.edit', compact('coursework', 'authors', 'managers'));
+        return view('courseWorks.edit', compact('coursework', 'authors', 'managers'));
     }
 
     public function update(Request $request, CourseWork $coursework)
@@ -69,13 +72,13 @@ class CourseWorkController extends Controller
             'manager_id' => $request->input('manager_id'),
         ]);
 
-        return redirect()->route('courseworks.show', $coursework->id);
+        return redirect()->route('courseWorks.show', $coursework->id);
     }
 
     public function destroy(CourseWork $coursework)
     {
         $coursework->delete();
 
-        return redirect()->route('courseworks.index');
+        return redirect()->route('courseWorks.index');
     }
 }

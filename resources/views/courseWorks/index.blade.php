@@ -24,6 +24,11 @@
                     <td>
                         <a href="{{ route('courseworks.show', $coursework->id) }}" class="btn btn-info">Show</a>
                         <a href="{{ route('courseworks.edit', $coursework->id) }}" class="btn btn-warning">Edit</a>
+                        <form action="{{ route('courseworks.destroy', $coursework->id) }}" method="POST" style="display: inline;">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this coursework?')">Delete</button>
+                        </form>
                     </td>
                 </tr>
             @endforeach

@@ -64,6 +64,6 @@ class AuthorController extends Controller
     public function destroy(Author $author)
     {
         $author->delete();
-        return view('authors.index');
+        redirect()->route('authors.index');
     }
 }
