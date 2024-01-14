@@ -23,6 +23,11 @@ class ManagerController extends Controller
         return view('managers.create');
     }
 
+    public function edit(Manager $manager)
+    {
+        return view('managers.update', compact('manager'));
+    }
+
     public function store(Request $request)
     {
 
@@ -32,7 +37,20 @@ class ManagerController extends Controller
             'department' => $request->input('department'),
         ]);
 
-        return view('managers.index');
+        return redirect()->route("managers.index");
+    }
+
+    public function update(Request $request, Manager $manager)
+    {
+
+
+        $manager->update([
+            'name' => $request->input('name'),
+            'email' => $request->input('email'),
+            'department' => $request->input('department'),
+        ]);
+
+        return redirect()->route('managers.index');
     }
 
     public function destroy(Manager $manager)
