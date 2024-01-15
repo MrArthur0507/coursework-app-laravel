@@ -1,4 +1,4 @@
-<x-app-layout>
+<x-guest-layout>
     <div class="container">
         <h2>CourseWorks List</h2>
 
@@ -24,4 +24,4 @@
             @endforeach
         </div>
     </div>
-</x-app-layout>
+</x-guest-layout>

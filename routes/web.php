@@ -18,7 +18,8 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    $courseworks = \App\Models\CourseWork::all();
+    return view('guest', compact('courseworks'));
 });
 
 Route::get('/dashboard', function () {
