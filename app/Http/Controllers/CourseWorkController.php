@@ -49,7 +49,7 @@ class CourseWorkController extends Controller
             'image_path' => $image_path,
         ]);
 
-        return redirect()->route('courseWorks.index');
+        return redirect()->route('courseworks.index');
     }
 
     public function edit(CourseWork $coursework)
