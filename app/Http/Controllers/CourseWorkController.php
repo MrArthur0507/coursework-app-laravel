@@ -32,18 +32,21 @@ class CourseWorkController extends Controller
 
     public function store(Request $request)
     {
+
         $request->validate([
             'title' => 'required|string|max:255',
             'description' => 'required|string',
             'author_id' => 'required|exists:authors,id',
             'manager_id' => 'required|exists:managers,id',
-        ]);
 
+        ]);
+        $image_path = $request->file('image')->store('images', 'public');
         $coursework = CourseWork::create([
             'title' => $request->input('title'),
             'description' => $request->input('description'),
             'author_id' => $request->input('author_id'),
             'manager_id' => $request->input('manager_id'),
+            'image_path' => $image_path,
         ]);
 
         return redirect()->route('courseWorks.index');

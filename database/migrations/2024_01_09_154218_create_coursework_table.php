@@ -17,6 +17,8 @@ return new class extends Migration
             $table->text('description');
             $table->unsignedBigInteger('author_id');
             $table->unsignedBigInteger('manager_id');
+            $table->string('image_path')->nullable();
+            $table->string('file_path')->nullable();
             $table->timestamps();
 
             $table->foreign('author_id')->references('id')->on('authors');

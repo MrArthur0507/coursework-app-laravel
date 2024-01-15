@@ -11,6 +11,7 @@
                 <th>Author</th>
                 <th>Manager</th>
                 <th>Action</th>
+                <th>Image</th>
             </tr>
             </thead>
             <tbody>
@@ -21,6 +22,13 @@
                     <td>{{ $coursework->description }}</td>
                     <td>{{ $coursework->author->name }}</td>
                     <td>{{ $coursework->manager->name }}</td>
+                    <td>
+                        @if($coursework->image_path)
+                            <img src="{{ asset('storage/' . $coursework->image_path) }}" alt="CourseWork Image" style="max-width: 100px; max-height: 100px;">
+                        @else
+                            No Image
+                        @endif
+                    </td>
                     <td>
                         <a href="{{ route('courseworks.show', $coursework->id) }}" class="btn btn-info">Show</a>
                         <a href="{{ route('courseworks.edit', $coursework->id) }}" class="btn btn-warning">Edit</a>

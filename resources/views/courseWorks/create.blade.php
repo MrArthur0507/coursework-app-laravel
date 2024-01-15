@@ -2,7 +2,7 @@
     <div class="container">
         <h2>Add Coursework</h2>
 
-        <form method="POST" action="{{ route('courseworks.store') }}">
+        <form method="POST" action="{{ route('courseworks.store') }}" enctype="multipart/form-data">
             @csrf
 
             <div class="form-group">
@@ -31,6 +31,16 @@
                         <option value="{{ $manager->id }}">{{ $manager->name }}</option>
                     @endforeach
                 </select>
+            </div>
+
+            <div class="form-group">
+                <label for="image">Image</label>
+                <input type="file" class="form-control-file" id="image" name="image" accept="image/*">
+            </div>
+
+            <div class="form-group">
+                <label for="file">File</label>
+                <input type="file" class="form-control-file" id="file" name="file">
             </div>
 
             <button type="submit" class="btn btn-primary">Add Coursework</button>

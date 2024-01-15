@@ -2,7 +2,7 @@
     <div class="container">
         <h2>Edit CourseWork</h2>
 
-        <form method="POST" action="{{ route('courseworks.update', $coursework->id) }}">
+        <form method="POST" action="{{ route('courseworks.update', $coursework->id) }}" enctype="multipart/form-data">
             @csrf
             @method('PUT')
 
@@ -36,6 +36,22 @@
                         </option>
                     @endforeach
                 </select>
+            </div>
+
+            <div class="form-group">
+                <label for="image">Image</label>
+                <input type="file" class="form-control-file" id="image" name="image" accept="image/*">
+                @if($coursework->image_path)
+                    <p>Existing Image: <a href="{{ asset($coursework->image_path) }}" target="_blank">{{ $coursework->image_path }}</a></p>
+                @endif
+            </div>
+
+            <div class="form-group">
+                <label for="file">File</label>
+                <input type="file" class="form-control-file" id="file" name="file">
+                @if($coursework->file_path)
+                    <p>Existing File: <a href="{{ asset($coursework->file_path) }}" target="_blank">{{ $coursework->file_path }}</a></p>
+                @endif
             </div>
 
             <button type="submit" class="btn btn-primary">Update CourseWork</button>
