@@ -59,33 +59,48 @@
             <!-- Nav Item - CourseWorks Collapse Menu -->
             <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
-                    aria-expanded="true" aria-controls="collapseTwo">
+                   aria-expanded="true" aria-controls="collapseTwo">
                     <i class="fas fa-fw fa-cog"></i>
                     <span>CourseWorks</span>
                 </a>
                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Actions:</h6>
-                        <a class="collapse-item" href="#">Show</a>
-                        <a class="collapse-item" href="#">Add new</a>
+                        <a class="collapse-item" href="{{ route('courseworks.index') }}">Show course works</a>
+                        <a class="collapse-item" href="{{ route('courseworks.create') }}">Add new course work</a>
                     </div>
                 </div>
             </li>
 
             <!-- Nav Item - Utilities Collapse Menu -->
             <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
-                    aria-expanded="true" aria-controls="collapseUtilities">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseThree"
+                   aria-expanded="true" aria-controls="collapseThree">
                     <i class="fas fa-fw fa-wrench"></i>
                     <span>Authors</span>
                 </a>
-                <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
-                    data-parent="#accordionSidebar">
+                <div id="collapseThree" class="collapse" aria-labelledby="headingThree"
+                     data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Actions:</h6>
-                        <a class="collapse-item" href="utilities-color.html">Show</a>
-                        <a class="collapse-item" href="{{ route('authors.create') }}">Add new</a>
+                        <a class="collapse-item" href="{{ route('authors.index') }}">Show authors</a>
+                        <a class="collapse-item" href="{{ route('authors.create') }}">Add new author</a>
+                    </div>
+                </div>
+            </li>
 
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseFour"
+                   aria-expanded="true" aria-controls="collapseFour">
+                    <i class="fas fa-fw fa-wrench"></i>
+                    <span>Managers</span>
+                </a>
+                <div id="collapseFour" class="collapse" aria-labelledby="headingFour"
+                     data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <h6 class="collapse-header">Actions:</h6>
+                        <a class="collapse-item" href="{{ route('managers.index') }}">Show managers</a>
+                        <a class="collapse-item" href="{{ route('managers.create') }}">Add new manager</a>
                     </div>
                 </div>
             </li>

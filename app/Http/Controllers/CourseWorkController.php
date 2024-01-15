@@ -53,7 +53,7 @@ class CourseWorkController extends Controller
     {
         $authors = Author::all();
         $managers = Manager::all();
-        return view('courseWorks.edit', compact('coursework', 'authors', 'managers'));
+        return view('courseWorks.update', compact('coursework', 'authors', 'managers'));
     }
 
     public function update(Request $request, CourseWork $coursework)
