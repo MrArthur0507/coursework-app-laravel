@@ -9,9 +9,17 @@ use Illuminate\Http\Request;
 
 class CourseWorkController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $courseworks = CourseWork::all();
+        $search = $request->input('search');
+        $query = CourseWork::query();
+
+        if ($search) {
+            $query->where('title', 'like', "%$search%")
+                ->orWhere('description', 'like', "%$search%");
+        }
+
+        $courseworks = $query->get();
         $courseworks->load('author', 'manager');
 
         return view('courseWorks.index', compact('courseworks'));

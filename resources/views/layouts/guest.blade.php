@@ -19,7 +19,7 @@
 
     <!-- Custom styles for this template-->
     <link href="{{asset('css/sb-admin-2.min.css')}}" rel="stylesheet">
-
+    <link href="{{asset('css/app.css')}}" rel="stylesheet">
 </head>
 
 <body id="page-top">
@@ -60,25 +60,29 @@
     </div>
 </nav>
 
-<div id="wrapper">
-    <!-- Your existing content -->
-    {{ $slot }}
-</div>
+<div id="wrapper" class="justify-content-center">
 
-<!-- Bootstrap core JavaScript-->
+    {{ $slot }}
+
+</div>
+<footer class="bg-light text-center py-3 mt-auto">
+    <div class="container">
+        <span class="text-muted">Your App Name &copy; {{ date('Y') }}</span>
+    </div>
+</footer>
+
 <script src="{{asset('vendor/jquery/jquery.min.js')}}"></script>
 <script src="{{asset('vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
 
-<!-- Core plugin JavaScript-->
+
 <script src="{{asset('vendor/jquery-easing/jquery.easing.min.js')}}"></script>
 
-<!-- Custom scripts for all pages-->
-<script src="{{asset('js/sb-admin-2.min.js')}}"></script>
 
-<!-- Page level plugins -->
+<script src="{{asset('js/sb-admin-2.min.js')}}"></script>
+<script src="{{asset('js/app.js')}}"></script>
+
 <script src="{{asset('vendor/chart.js/Chart.min.js')}}"></script>
 
-<!-- Page level custom scripts -->
 
 
 </body>
