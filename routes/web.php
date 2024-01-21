@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthorController;
+use App\Http\Controllers\CommentController;
 use App\Http\Controllers\CourseWorkController;
 use App\Http\Controllers\ManagerController;
 use App\Http\Controllers\ProfileController;
@@ -37,7 +38,7 @@ Route::middleware(['auth', 'admin'])->group(function () {
     Route::get('/courseworks/edit/{coursework}', [CourseWorkController::class, 'edit'])->name('courseworks.edit');
     Route::put('/courseworks/update/{coursework}', [CourseWorkController::class, 'update'])->name('courseworks.update');
     Route::delete('/courseworks/{coursework}', [CourseWorkController::class, 'destroy'])->name('courseworks.destroy');
-
+    Route::post('/courseworks/{courseWork}/comments', [CommentController::class, 'store'])->name('comments.store');
 // Authors Routes
     Route::get('/authors', [AuthorController::class, 'index'])->name('authors.index');
     Route::get('/authors/create', [AuthorController::class, 'create'])->name('authors.create');

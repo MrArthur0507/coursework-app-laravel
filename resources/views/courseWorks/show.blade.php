@@ -17,5 +17,29 @@
             No Image
         @endif
         <a href="{{ route('courseworks.edit', $coursework->id) }}" class="btn btn-warning">Edit</a>
+
+        <h3 class="mb-3">Comments:</h3>
+
+        @forelse($coursework->comments as $comment)
+            <div class="card mb-2">
+                <div class="card-body">
+                    <p class="card-text">{{ $comment->body }} - {{ $comment->user->name }}</p>
+                </div>
+            </div>
+        @empty
+            <p>No comments yet.</p>
+        @endforelse
+
+        <!-- Add a form for adding new comments -->
+        <form method="POST" action="{{ route('comments.store', ['courseWork' => $coursework->id])}}">
+            @csrf
+
+            <div class="form-group mt-4">
+                <label for="comment">Add a Comment:</label>
+                <textarea class="form-control" name="body" id="comment" rows="3" placeholder="Type your comment here"></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary mt-2">Submit Comment</button>
+        </form>
     </div>
+
 </x-app-layout>
