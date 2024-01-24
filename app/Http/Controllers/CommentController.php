@@ -21,7 +21,18 @@ class CommentController extends Controller
 
         $courseWork->comments()->save($comment);
 
-        return redirect()->route('courseworks.show', $courseWork->id)->with('success', 'Comment added successfully');
+        return redirect()->route('courseWorks.show', $courseWork->id);
+
+
+    }
+
+    public function destroy(Comment $comment)
+    {
+        $this->authorize('delete', $comment);
+
+        $comment->delete();
+
+        return redirect()->back()->with('success', 'Comment deleted successfully.');
     }
 
 }

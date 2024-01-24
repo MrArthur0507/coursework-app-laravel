@@ -2,7 +2,7 @@
     <div class="container">
         <h2>Add Coursework</h2>
 
-        <form method="POST" action="{{ route('courseworks.store') }}" enctype="multipart/form-data">
+        <form method="POST" action="{{ route('courseWorks.store') }}" enctype="multipart/form-data">
             @csrf
 
             <div class="form-group">

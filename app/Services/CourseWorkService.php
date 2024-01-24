@@ -43,13 +43,14 @@ class CourseWorkService
     public function storeCourseWork($data)
     {
         $image_path = $data['image']->store('images', 'public');
-
+        $file_path = $data['file']->store('files', 'public');
         return CourseWork::create([
             'title' => $data['title'],
             'description' => $data['description'],
             'author_id' => $data['author_id'],
             'manager_id' => $data['manager_id'],
             'image_path' => $image_path,
+            'file_path' => $file_path,
         ]);
     }
 

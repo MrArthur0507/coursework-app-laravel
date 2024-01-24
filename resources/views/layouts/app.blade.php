@@ -66,8 +66,8 @@
                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Actions:</h6>
-                        <a class="collapse-item" href="{{ route('courseworks.index') }}">Show course works</a>
-                        <a class="collapse-item" href="{{ route('courseworks.create') }}">Add new course work</a>
+                        <a class="collapse-item" href="{{ route('courseWorks.index') }}">Show course works</a>
+                        <a class="collapse-item" href="{{ route('courseWorks.create') }}">Add new course work</a>
                     </div>
                 </div>
             </li>
@@ -127,7 +127,7 @@
                     </button>
 
                     <!-- Topbar Search -->
-                    <form method="GET" action="{{ route('courseworks.index') }}"
+                    <form method="GET" action="{{ route('courseWorks.index') }}"
                         class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search" >
                         <div class="input-group">
                             <input type="text" name="search" class="form-control bg-light border-0 small" placeholder="Search for..."

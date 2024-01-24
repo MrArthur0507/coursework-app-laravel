@@ -2,7 +2,7 @@
     <div class="container">
         <h2>Edit CourseWork</h2>
 
-        <form method="POST" action="{{ route('courseworks.update', $coursework->id) }}" enctype="multipart/form-data">
+        <form method="POST" action="{{ route('courseWorks.update', $coursework->id) }}" enctype="multipart/form-data">
             @csrf
             @method('PUT')
 

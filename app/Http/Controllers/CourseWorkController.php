@@ -7,6 +7,7 @@ use App\Models\CourseWork;
 use App\Models\Manager;
 use App\Services\CourseWorkService;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class CourseWorkController extends Controller
 {
@@ -47,11 +48,12 @@ class CourseWorkController extends Controller
             'author_id' => 'required|exists:authors,id',
             'manager_id' => 'required|exists:managers,id',
             'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'file' => 'required|file|mimes:pdf,doc,docx|max:2048',
         ]);
 
         $this->courseWorkService->storeCourseWork($request);
 
-        return redirect()->route('courseworks.index');
+        return redirect()->route('courseWorks.index');
     }
 
     public function edit(CourseWork $coursework)
@@ -68,11 +70,26 @@ class CourseWorkController extends Controller
             'description' => 'required|string',
             'author_id' => 'required|exists:authors,id',
             'manager_id' => 'required|exists:managers,id',
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'file' => 'required|file|mimes:pdf,doc,docx|max:2048',
         ]);
 
         $this->courseWorkService->updateCourseWork($coursework, $request);
 
         return redirect()->route('courseWorks.show', $coursework->id);
+    }
+
+    public function download($id)
+    {
+        $coursework = CourseWork::findOrFail($id);
+
+        if ($coursework->file_path) {
+
+            return response()->download(storage_path('app/public/' . $coursework->file_path));
+        } else {
+
+            abort(404);
+        }
     }
 
     public function destroy($id)

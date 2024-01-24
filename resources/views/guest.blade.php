@@ -17,7 +17,7 @@
                             <p class="card-text">{{ $coursework->description }}</p>
                             <p class="card-text mt-auto"><strong>Author:</strong> {{ $coursework->author->name }}</p>
                             <p class="card-text"><strong>Manager:</strong> {{ $coursework->manager->name }}</p>
-                            <a href="{{ route('courseworks.show', $coursework->id) }}" class="btn btn-primary mt-auto">View Details</a>
+                            <a href="{{ route('courseWorks.show', $coursework->id) }}" class="btn btn-primary mt-auto">View Details</a>
                         </div>
                     </div>
                 </div>
