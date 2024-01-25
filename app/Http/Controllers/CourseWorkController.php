@@ -24,6 +24,7 @@ class CourseWorkController extends Controller
         $courseworks->each(function($coursework) {
             $this->courseWorkService->loadRelationships($coursework);
         });
+
         return view('courseWorks.index', compact('courseworks'));
     }
 

@@ -22,7 +22,8 @@ class CourseWorkService
                 });
         }
 
-        return $query->get();
+        $courseworks = $query->paginate(10);
+        return $courseworks;
     }
 
     public function loadRelationships(CourseWork $coursework)

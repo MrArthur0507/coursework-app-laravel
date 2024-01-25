@@ -1,8 +1,25 @@
 <x-app-layout>
     <div class="container">
         <h2>CourseWorks List</h2>
+        <div class="row bg-light p-3">
+            <div class="col-md-12">
+                <div class="custom-pagination">
+                    @if($courseworks->previousPageUrl())
+                        <a href="{{ $courseworks->previousPageUrl() }}" class="pagination-item">&laquo; Previous</a>
+                    @endif
 
+                    @for($i = 1; $i <= $courseworks->lastPage(); $i++)
+                        <a href="{{ $courseworks->url($i) }}" class="pagination-item{{ $courseworks->currentPage() == $i ? ' active' : '' }}">{{ $i }}</a>
+                    @endfor
+
+                    @if($courseworks->nextPageUrl())
+                        <a href="{{ $courseworks->nextPageUrl() }}" class="pagination-item">Next &raquo;</a>
+                    @endif
+                </div>
+            </div>
+        </div>
         <div class="row">
+
             @foreach($courseworks as $coursework)
                 <div class="col-md-4 mb-4">
                     <div class="card h-100">
@@ -23,6 +40,7 @@
                 </div>
             @endforeach
         </div>
+
 
     </div>
 </x-app-layout>
