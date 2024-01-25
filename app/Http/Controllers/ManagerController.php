@@ -30,6 +30,11 @@ class ManagerController extends Controller
 
     public function store(Request $request)
     {
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'email' => 'required|email|unique:managers,email|max:255',
+            'department' => 'required|string|max:255',
+        ]);
 
         $manager = Manager::create([
             'name' => $request->input('name'),
@@ -42,7 +47,11 @@ class ManagerController extends Controller
 
     public function update(Request $request, Manager $manager)
     {
-
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'email' => 'required|email|unique:managers,email|max:255',
+            'department' => 'required|string|max:255',
+        ]);
 
         $manager->update([
             'name' => $request->input('name'),

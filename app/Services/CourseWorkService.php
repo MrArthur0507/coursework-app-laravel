@@ -56,11 +56,15 @@ class CourseWorkService
 
     public function updateCourseWork(CourseWork $coursework, $data)
     {
+        $image_path = $data['image']->store('images', 'public');
+        $file_path = $data['file']->store('files', 'public');
         $coursework->update([
             'title' => $data['title'],
             'description' => $data['description'],
             'author_id' => $data['author_id'],
             'manager_id' => $data['manager_id'],
+            'image_path' => $image_path,
+            'file_path' => $file_path,
         ]);
     }
 

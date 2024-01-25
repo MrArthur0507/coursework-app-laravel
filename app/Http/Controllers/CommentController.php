@@ -23,7 +23,6 @@ class CommentController extends Controller
 
         return redirect()->route('courseWorks.show', $courseWork->id);
 
-
     }
 
     public function destroy(Comment $comment)
@@ -32,7 +31,7 @@ class CommentController extends Controller
 
         $comment->delete();
 
-        return redirect()->back()->with('success', 'Comment deleted successfully.');
+        return redirect()->back();
     }
 
 }

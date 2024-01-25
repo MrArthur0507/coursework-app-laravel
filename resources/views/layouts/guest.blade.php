@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>SB Admin 2 - Dashboard</title>
+    <title>Course work manager</title>
 
     <!-- Custom fonts for this template-->
     <link href="{{asset('vendor/fontawesome-free/css/all.min.css')}}" rel="stylesheet" type="text/css">
@@ -26,7 +26,7 @@
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container">
-        <a class="navbar-brand" href="#">Your App Name</a>
+        <a class="navbar-brand" href="#">Course work manager</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -67,7 +67,7 @@
 </div>
 <footer class="bg-light text-center py-3 mt-auto">
     <div class="container">
-        <span class="text-muted">Your App Name &copy; {{ date('Y') }}</span>
+        <span class="text-muted">Course work manager - Bozhidar Penchev &copy; {{ date('Y') }}</span>
     </div>
 </footer>
 
