@@ -19,8 +19,8 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    $courseworks = \App\Models\CourseWork::all();
-    return view('guest', compact('courseworks'));
+    $courseWorks = \App\Models\CourseWork::query()->paginate(10);
+    return view('guest', compact('courseWorks'));
 });
 
 Route::get('/dashboard', function () {

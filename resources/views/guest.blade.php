@@ -1,9 +1,25 @@
 <x-guest-layout>
     <div class="container">
         <h2>CourseWorks List</h2>
+        <div class="row bg-light p-3">
+            <div class="col-md-12">
+                <div class="custom-pagination">
+                    @if($courseWorks->previousPageUrl())
+                        <a href="{{ $courseWorks->previousPageUrl() }}" class="pagination-item">&laquo; Previous</a>
+                    @endif
 
+                    @for($i = 1; $i <= $courseWorks->lastPage(); $i++)
+                        <a href="{{ $courseWorks->url($i) }}" class="pagination-item{{ $courseWorks->currentPage() == $i ? ' active' : '' }}">{{ $i }}</a>
+                    @endfor
+
+                    @if($courseWorks->nextPageUrl())
+                        <a href="{{ $courseWorks->nextPageUrl() }}" class="pagination-item">Next &raquo;</a>
+                    @endif
+                </div>
+            </div>
+        </div>
         <div class="row">
-            @foreach($courseworks as $coursework)
+            @foreach($courseWorks as $coursework)
                 <div class="col-md-4 mb-4">
                     <div class="card h-100">
                         @if($coursework->image_path)

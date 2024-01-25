@@ -20,6 +20,21 @@
     <!-- Custom styles for this template-->
     <link href="{{asset('css/sb-admin-2.min.css')}}" rel="stylesheet">
     <link href="{{asset('css/app.css')}}" rel="stylesheet">
+    <style>
+        .pagination-container {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+        .custom-pagination .pagination-item {
+            font-size: 18px;
+        }
+
+        .custom-pagination .pagination-item.active {
+            font-weight: bold;
+        }
+    </style>
 </head>
 
 <body id="page-top">
