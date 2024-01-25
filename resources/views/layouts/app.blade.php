@@ -119,6 +119,23 @@
                 </div>
             </li>
 
+            @if(Auth()->user()->isAdmin())
+                <li class="nav-item">
+                    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseFive"
+                       aria-expanded="true" aria-controls="collapseFive">
+                        <i class="fas fa-fw fa-wrench"></i>
+                        <span>Users</span>
+                    </a>
+                    <div id="collapseFive" class="collapse" aria-labelledby="headingFour"
+                         data-parent="#accordionSidebar">
+                        <div class="bg-white py-2 collapse-inner rounded">
+                            <h6 class="collapse-header">Actions:</h6>
+                            <a class="collapse-item" href="{{ route('admin.index') }}">Show users</a>
+                        </div>
+                    </div>
+                </li>
+            @endif
+
             <!-- Divider -->
             <hr class="sidebar-divider">
 
@@ -202,7 +219,7 @@
                                     <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                                     Profile
                                 </a>
-                                
+
 
                                 <div class="dropdown-divider"></div>
                                 <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">

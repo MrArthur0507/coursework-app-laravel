@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AuthorController;
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\CourseWorkController;
@@ -29,6 +30,12 @@ Route::get('/dashboard', function () {
 
 
 Route::middleware(['auth', 'admin'])->group(function () {
+
+    Route::get('/admin', [AdminController::class, 'index'])->name('admin.index');
+    Route::get('/admin/edit/{user}', [AdminController::class, 'edit'])->name('admin.edit');
+    Route::put('/admin/update/{user}', [AdminController::class, 'update'])->name('admin.update');
+
+
     Route::get('/managers/create', [ManagerController::class, 'create'])->name('managers.create');
     Route::post('/managers', [ManagerController::class, 'store'])->name('managers.store');
     Route::get('/managers/edit/{manager}', [ManagerController::class, 'edit'])->name('managers.edit');
